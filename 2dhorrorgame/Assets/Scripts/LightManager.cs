@@ -20,7 +20,7 @@ public class LightManager : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("LightsOut", 70f, 70f);
+        InvokeRepeating("LightsOut", 100f, 100f);
     }
 
     void Update()
