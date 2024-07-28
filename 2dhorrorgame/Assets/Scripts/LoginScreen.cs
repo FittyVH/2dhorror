@@ -10,7 +10,7 @@ public class LoginScreen : MonoBehaviour
     [SerializeField] GameObject homeScreen;
 
     private InputField password;
-    string correctPassword = "26-04-1978";
+    string correctPassword = "26/04/1978";
 
     void Start()
     {

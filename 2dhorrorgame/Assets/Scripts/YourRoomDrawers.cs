@@ -20,6 +20,7 @@ public class YourRoomDrawers : MonoBehaviour
     [SerializeField] GameObject UIText;
 
     [SerializeField] GameObject UIElements;
+    [SerializeField] GameObject IdCardZoom;
 
     bool isColliding = false;
     bool drawerOpen = false;
@@ -56,6 +57,7 @@ public class YourRoomDrawers : MonoBehaviour
             useMouseText.SetActive(false);
             UIElements.GetComponent<Button>().enabled = true;
             UIElements.GetComponent<Image>().enabled = true;
+            IdCardZoom.SetActive(false);
         }
     }
     void OnTriggerEnter2D(Collider2D other) 
@@ -83,5 +85,11 @@ public class YourRoomDrawers : MonoBehaviour
         UIElements.GetComponent<Image>().enabled = false;
         idCardDrawer.GetComponent<SpriteRenderer>().sortingLayerName = "drawers";
         idCardButton.SetActive(true);
+    }
+
+    public void IdCardClicked()
+    {
+        IdCardZoom.SetActive(true);
+        idCardButton.SetActive(false);
     }
 }
