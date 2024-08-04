@@ -16,7 +16,7 @@ public class LightManager : MonoBehaviour
 
     private bool isColliding;
     private bool lightOn = false;
-    private bool lightAuto = false;
+    // private bool lightAuto = false;
 
     void Start()
     {
@@ -33,12 +33,12 @@ public class LightManager : MonoBehaviour
         }
         if (lightOn == true)
         {
-            lightAuto = true;
+            // lightAuto = true;
             lights.GetComponent<Light2D>().enabled = true;
         }
         else if (lightOn == false)
         {
-            lightAuto = false;
+            // lightAuto = false;
             lights.GetComponent<Light2D>().enabled = false;
         }
     }
@@ -60,21 +60,10 @@ public class LightManager : MonoBehaviour
 
     void LightsOut()
     {
-        if (lightAuto == true)
-        {
-            src.clip = lightSwitch;
-            src.Play();
-            cameraSrc.clip = scaryPiano;
-            cameraSrc.Play();
-            lightOn = false;
-        }
-        else if (lightAuto == false)
-        {
-            src.clip = lightSwitch;
-            src.Play();
-            cameraSrc.clip = scaryPiano;
-            cameraSrc.Play();
-            lightOn = true;
-        }
+        src.clip = lightSwitch;
+        src.Play();
+        cameraSrc.clip = scaryPiano;
+        cameraSrc.Play();
+        lightOn = !lightOn;
     }
 }

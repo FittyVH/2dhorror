@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     [SerializeField] AudioClip doorOpenAudio;
     [SerializeField] AudioClip doorLockedAudio;
     [SerializeField] AudioClip keySound;
-    [SerializeField] AudioClip basementBg;
+    // [SerializeField] AudioClip basementBg;
 
     bool stairIsCollidingL = false;
     bool stairIsCollidingDownL = false;
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     bool yourRoomKeyIsColliding = false;
     bool basementDoorColliding = false;
     bool haveYourRoomKey = false;
-    bool haveBasementKey = false;
+    bool haveBasementKey = true;///set this to false
     bool daughterRoomLockedIsColliding = false;
     public bool daughterRoomUnlocked;
     bool collidingLRDoor = false;
@@ -128,8 +128,8 @@ public class Movement : MonoBehaviour
         {
             src.clip = doorOpenAudio;
             src.Play();
-            canvasSrc.clip = basementBg;
-            canvasSrc.Play();
+            // canvasSrc.clip = basementBg;
+            // canvasSrc.Play();
             camPosition.transform.position = new Vector3(camPosition.transform.position.x, -15f, -10f);
             transform.position = new Vector2(71.5f, -16.75f);
             basementOpenDoor.SetActive(true);

@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 0f;
             player.GetComponent<Animator>().enabled = false;
+            player.GetComponent<Movement>().enabled = false;
             pauseMenu.SetActive(true);
             pauseMenuOn = true;
         }
@@ -34,6 +35,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         player.GetComponent<Animator>().enabled = true;
+        player.GetComponent<Movement>().enabled = true;
         pauseMenu.SetActive(false);
         pauseMenuOn = false;
     }
