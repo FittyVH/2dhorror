@@ -21,7 +21,7 @@ public class GhostShadowSwitch : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("LightsOut", 70f, 70f);
+        InvokeRepeating("LightsOut", 130f, 130f);
     }
 
     void Update()

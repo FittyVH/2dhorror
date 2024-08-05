@@ -9,6 +9,7 @@ public class LivingRoomLights : MonoBehaviour
     [SerializeField] GameObject lights;
     [SerializeField] GameObject player;
     [SerializeField] GameObject ghost;
+    public GameObject blackScreen;
 
     [SerializeField] AudioSource src;
     [SerializeField] AudioSource cmSrc;
@@ -84,6 +85,8 @@ public class LivingRoomLights : MonoBehaviour
     }
     public void SceneTransition()
     {
+        blackScreen.SetActive(true);
+        Destroy(GameObject.FindWithTag("Player"));
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 

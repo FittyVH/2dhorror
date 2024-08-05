@@ -28,6 +28,7 @@ TagManager:
   - LivingRoomDoor
   - Ghost
   - FinalCutScene
+  - DaughterDrawer
   layers:
   - Default
   - TransparentFX

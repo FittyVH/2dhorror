@@ -11,6 +11,8 @@ public class LoginScreen : MonoBehaviour
 
     private InputField password;
     string correctPassword = "26/04/1978";
+    string correctPassword1 = "26041978";
+    string correctPassword2 = "26-04-1978";
 
     void Start()
     {
@@ -19,7 +21,7 @@ public class LoginScreen : MonoBehaviour
 
     public void LoginClicked()
     {
-        if(password.text == correctPassword)
+        if(password.text == correctPassword || password.text == correctPassword1 || password.text == correctPassword2)
         {
             homeScreen.SetActive(true);
             loginScreen.SetActive(false);   

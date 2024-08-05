@@ -22,7 +22,7 @@ public class ParanormalActivity : MonoBehaviour
         functions.Add(GhostRunLeft);
         functions.Add(GhostRunRight);
 
-        InvokeRepeating("InvokeRandomEvent", 50f, 50f);
+        InvokeRepeating("InvokeRandomEvent", 80f, 80f);
     }
 
     void InvokeRandomEvent()

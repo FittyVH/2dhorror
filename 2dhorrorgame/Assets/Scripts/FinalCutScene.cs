@@ -15,6 +15,9 @@ public class FinalCutScene : MonoBehaviour
 
     public AudioSource src;
     public AudioClip textSound;
+    public AudioClip finalSound;
+
+    // public Credits credits;
 
     public GameObject[] text;
     int i = 0;
@@ -22,15 +25,25 @@ public class FinalCutScene : MonoBehaviour
 
     bool notMoving = false;
     bool finalTrigger = false;
+    public bool triggerFinalMusic = false;
     bool paranormalActivityDisabled = false;
 
     void Start()
     {
-        
+        // credits = GameObject.FindObjectOfType<Credits>();
+    }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
     }
 
     void Update()
     {
+        // if (credits.finalMusicStop == true)
+        // {
+        //     Destroy(this);
+        // }
         if (notMoving == true)
         {
             player.GetComponent<Movement>().enabled = false;
@@ -45,6 +58,12 @@ public class FinalCutScene : MonoBehaviour
         if (paranormalActivityDisabled == true)
         {
             Destroy(GameObject.FindWithTag("Switch"));
+            Destroy(GameObject.FindWithTag("Drawer"));
+            Destroy(GameObject.FindWithTag("YourRoomEnter"));
+            Destroy(GameObject.FindWithTag("DaughterRoomEnter"));
+            Destroy(GameObject.FindWithTag("BasementDoor"));
+            Destroy(GameObject.FindWithTag("Cupboard"));
+            Destroy(GameObject.FindWithTag("DaughterDrawer"));
             Destroy(paranormalActivity);
             Destroy(mainGhost);
             movement.LivingRoomDoorOpen = true;
@@ -68,10 +87,12 @@ public class FinalCutScene : MonoBehaviour
 
             if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)) && i == text.Length - 1)
             {
-                src.Stop();
+                src.clip = finalSound;
+                src.Play();
                 Destroy(GameObject.FindWithTag("FinalCutScene"));
                 finalText.SetActive(false);
                 notMoving = false;
+                triggerFinalMusic = true;
             }
         }
     }

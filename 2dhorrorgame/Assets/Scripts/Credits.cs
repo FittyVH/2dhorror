@@ -8,6 +8,8 @@ public class Credits : MonoBehaviour
 {
     public float creditSpeed = 2f;
 
+    public bool finalMusicStop = false;
+
     public Animator transition;
     public float transitionTime = 1f;
 
@@ -24,7 +26,8 @@ public class Credits : MonoBehaviour
         }
         else
         {
-            StartCoroutine(LoadLevel(0));
+            StartCoroutine(LoadLevel(5));
+            finalMusicStop = true;
         }
     }
 

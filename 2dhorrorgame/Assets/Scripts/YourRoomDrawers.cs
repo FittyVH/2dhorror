@@ -42,6 +42,7 @@ public class YourRoomDrawers : MonoBehaviour
         {
             drawer.GetComponent<SpriteRenderer>().sortingLayerName = "drawers";
             player.GetComponent<Movement>().enabled = false;
+            player.GetComponent<Animator>().enabled = false;
             useMouseText.SetActive(true);
             UIText.SetActive(false);
             UIElements.SetActive(true);
@@ -51,6 +52,7 @@ public class YourRoomDrawers : MonoBehaviour
         {
             drawer.GetComponent<SpriteRenderer>().sortingLayerName = "default";
             player.GetComponent<Movement>().enabled = true;
+            player.GetComponent<Animator>().enabled = true;
             UIElements.SetActive(false);
             idCardDrawer.GetComponent<SpriteRenderer>().sortingLayerName = "default";
             idCardButton.SetActive(false);

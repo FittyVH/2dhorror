@@ -14,13 +14,14 @@ public class LightManager : MonoBehaviour
     [SerializeField] AudioSource src;
     [SerializeField] AudioSource cameraSrc;
 
-    private bool isColliding;
-    private bool lightOn = false;
+    bool isColliding;
+    bool lightOn = false;
     // private bool lightAuto = false;
 
     void Start()
     {
-        InvokeRepeating("LightsOut", 100f, 100f);
+        InvokeRepeating("LightsOut", 130f, 130f);
+        // StartCoroutine(LightsOutCoroutine(100f, 100f));
     }
 
     void Update()
@@ -66,4 +67,14 @@ public class LightManager : MonoBehaviour
         cameraSrc.Play();
         lightOn = !lightOn;
     }
+
+    // IEnumerator LightsOutCoroutine(float initialDelay, float repeatRate)
+    // {
+    //     yield return new WaitForSeconds(initialDelay);
+    //     while (true)
+    //     {
+    //         LightsOut();
+    //         yield return new WaitForSeconds(repeatRate);
+    //     }
+    // }
 }

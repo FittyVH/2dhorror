@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     bool basementDoorColliding = false;
     bool haveYourRoomKey = false;
     public bool LivingRoomDoorOpen = false;
-    bool haveBasementKey = true;///set this to false
+    bool haveBasementKey = false;///
     bool daughterRoomLockedIsColliding = false;
     public bool daughterRoomUnlocked;
     bool collidingLRDoor = false;

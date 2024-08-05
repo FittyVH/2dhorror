@@ -10,6 +10,8 @@ public class LoadCredits : MonoBehaviour
 
     public Movement movement;
 
+    // public GameObject player;
+
     void Start()
     {
         
@@ -20,6 +22,7 @@ public class LoadCredits : MonoBehaviour
         if (movement.loadCredits == true)
         {
             Invoke("LoadNextScene", 4f);
+            // Invoke("DestroyThis", 29f);
         }
     }
 
@@ -27,6 +30,11 @@ public class LoadCredits : MonoBehaviour
     {
         StartCoroutine(LoadLevel(4));
     }
+
+    // void DestroyThis()
+    // {
+    //     Destroy(player);
+    // }
 
     IEnumerator LoadLevel(int levelIndex)
     {
