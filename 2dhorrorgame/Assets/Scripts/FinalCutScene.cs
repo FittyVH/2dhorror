@@ -5,7 +5,10 @@ using UnityEngine.Rendering;
 
 public class FinalCutScene : MonoBehaviour
 {
+    public Movement movement;
+
     public GameObject ghost;
+    public GameObject mainGhost;
     public GameObject player;
     public GameObject finalText;
     public GameObject paranormalActivity;
@@ -43,7 +46,9 @@ public class FinalCutScene : MonoBehaviour
         {
             Destroy(GameObject.FindWithTag("Switch"));
             Destroy(paranormalActivity);
-            Debug.Log("no paranormal activity");
+            Destroy(mainGhost);
+            movement.LivingRoomDoorOpen = true;
+            // Debug.Log("no paranormal activity");
         }
 
         if (finalTrigger == true)

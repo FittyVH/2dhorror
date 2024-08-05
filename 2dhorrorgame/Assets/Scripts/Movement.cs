@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     bool yourRoomKeyIsColliding = false;
     bool basementDoorColliding = false;
     bool haveYourRoomKey = false;
+    public bool LivingRoomDoorOpen = false;
     bool haveBasementKey = true;///set this to false
     bool daughterRoomLockedIsColliding = false;
     public bool daughterRoomUnlocked;
@@ -40,6 +41,7 @@ public class Movement : MonoBehaviour
     [SerializeField] GameObject daughterRoomOpenDoor;
     [SerializeField] GameObject basementOpenDoor;
 
+    [SerializeField] GameObject blackScreen;
     [SerializeField] GameObject EText;
     [SerializeField] GameObject upStairText;
     [SerializeField] GameObject downStairText;
@@ -52,6 +54,8 @@ public class Movement : MonoBehaviour
     [SerializeField] GameObject pcPromptRoomUnlockedText;
     [SerializeField] GameObject lockedText;
     [SerializeField] GameObject ghostText;
+
+    public bool loadCredits = false;
 
     SpriteRenderer spriteRenderer;
     AudioSource src;
@@ -144,10 +148,16 @@ public class Movement : MonoBehaviour
             src.clip = doorLockedAudio;
             src.Play();
         }
-        if (collidingLRDoor == true && Input.GetKeyDown(KeyCode.E))
+        if (collidingLRDoor == true && Input.GetKeyDown(KeyCode.E) && LivingRoomDoorOpen == false)
         {
             src.clip = doorLockedAudio;
             src.Play();
+        }
+        if (collidingLRDoor == true && Input.GetKeyDown(KeyCode.E) && LivingRoomDoorOpen == true)
+        {
+            GetComponent<Movement>().enabled = false;
+            blackScreen.SetActive(true);
+            loadCredits = true;
         }
     }
 
@@ -302,8 +312,15 @@ public class Movement : MonoBehaviour
         }
         if (other.gameObject.tag == "LivingRoomDoor")
         {
-            lockedText.SetActive(true);
             collidingLRDoor = true;
+            if (LivingRoomDoorOpen == false)
+            {
+                lockedText.SetActive(true);
+            }
+            else if (LivingRoomDoorOpen == true)
+            {
+                openDoorText.SetActive(true);
+            }
         }
         if (other.gameObject.tag == "Ghost")
         {
