@@ -389,6 +389,7 @@ public class Movement : MonoBehaviour
         {
             lockedText.SetActive(false);
             collidingLRDoor = false;
+            openDoorText.SetActive(false);
         }
         if (other.gameObject.tag == "Ghost")
         {

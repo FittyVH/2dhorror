@@ -93,6 +93,7 @@ public class FinalCutScene : MonoBehaviour
                 finalText.SetActive(false);
                 notMoving = false;
                 triggerFinalMusic = true;
+                i++;
             }
         }
     }
